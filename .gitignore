@@ -4,4 +4,10 @@
 __pycache__/
 before_offline/
 code_review/
-dataset
+datasets/
+pretrained/
+README.md
+output_videos/
+results/
+tools/frames/
+*.mp4

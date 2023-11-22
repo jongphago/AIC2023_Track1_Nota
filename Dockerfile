@@ -1,4 +1,4 @@
-FROM nvidia/cuda:11.4.0-cudnn8-devel-ubuntu20.04
+FROM nvidia/cuda:11.4.3-cudnn8-devel-ubuntu20.04
 
 ENV DEBIAN_FRONTEND=noninteractive 
 
@@ -17,15 +17,21 @@ RUN apt-get install -y libgl1-mesa-glx ffmpeg
 RUN pip3 install Cython
 Run pip3 install cython-bbox
 
-RUN pip3 install -U openmim
-RUN mim install mmengine && \
-    mim install "mmcv>=2.0.0" && \
-    mim install "mmdet>=3.0.0"
+RUN pip3 install --upgrade pip
+RUN pip3 install six
 
-RUN pip3 install lap \
-    ultralytics \
-    mmpose \
-    fastreid \
-    opencv-python==4.5.5.64 \
-    opencv-python-headless==4.5.5.64 \
-    numpy==1.23.0
+RUN pip3 install -U openmim
+RUN pip3 install --upgrade setuptools
+RUN mim install mmengine
+RUN mim install "mmcv>=2.0.0"
+RUN mim install "mmdet>=3.0.0"
+
+RUN pip3 install lap
+RUN pip3 install ultralytics
+RUN pip3 install mmpose
+RUN pip3 install fastreid
+RUN pip3 install opencv-python==4.5.5.64
+RUN pip3 install opencv-python-headless==4.5.5.64
+RUN pip3 install numpy==1.23.0
+
+RUN sudo apt install git-all

@@ -12,14 +12,15 @@ bash ./setup.sh
 - option 2: Use our docker image
 ```bash
 docker build -t aic2023/track1_nota:latest -f ./Dockerfile .
-docker run -it --gpus all -v /path/to/AIC2023_Track1_Nota:/workspace/AIC2023_Track1_Nota aic2023/track1_nota:latest /bin/bash
+sudo docker run -it --gpus all -v /home/jongphago/project/AIC2023_Track1_Nota:/workspace/AIC2023_Track1_Nota aic2023/track1_nota:latest /bin/bash
 ```
 
 ## Data & Model Preparation
 1. Download the dataset and extract frames  
 ```bash
 # extract frames
-python3 tools/extract_frames.py --path /path/to/AIC23_Track1_MTMC_Tracking/
+sudo python3 tools/extract_frames.py --path /workspace/AIC2023_Track1_Nota/datasets
+sudo python3 tools/extract_frames.py --path /workspace/AIC2023_Track1_Nota/datasets/AV019
 ```
 
 2. Download the pre-trained models ([Google Drive](https://drive.google.com/drive/folders/1_VichQvhbmfuD4h8x4-e7Rwc560TzWqH?usp=share_link))  
@@ -48,7 +49,7 @@ Make sure the data structure is like:
 ```
 
 ## Reproduce MCPT Results
-Run `bash ./run_mcpt.sh`  
+Run `sudo bash /workspace/AIC2023_Track1_Nota/run_mcpt.sh`  
 
 The result files will be saved as follows:
 
