@@ -92,6 +92,8 @@ _COLORS = np.array(
 ).astype(np.float32).reshape(-1, 3)
 
 sources = {
+        # AIHUB
+        'AV019': [f'./datasets/AV019/c0{i:02d}/' for i in range(1, 17)],
         # Test
         'S001': [
                 './datasets/S001/c001/',
@@ -153,6 +155,8 @@ sources = {
         }
 
 result_paths = {
+    # AIHUB
+    'AV019': './results/AV019.txt',
     # Test
     'S001': './results/S001.txt',
     'S003': './results/S003.txt',
@@ -164,6 +168,11 @@ result_paths = {
     }
 
 map_infos = {
+    "AV019": {
+        "size" : (1591,896),
+        "source" : "./datasets/AV019/map.png",
+        "savedir" : "./output_videos/mapAV019.mp4"
+    },
     # Test
     "S001": {
         "size" : (1591,896),
@@ -203,6 +212,7 @@ map_infos = {
     }
 
 cam_ids = {
+    "AV019": [str(i) for i in range(1, 17)],
     # Test
     'S001': ['1', '2', '3', '4', '5', '6', '7'],
     'S003': ['14', '15', '16', '17', '18', '19'],
@@ -214,7 +224,7 @@ cam_ids = {
 }
 
 def get_reader_writer(source):
-    src_paths = sorted(os.listdir(source),  key=lambda x: int(x.split("_")[-1].split(".")[0]))
+    src_paths = sorted([p for p in os.listdir(source) if (p != "video.mp4")],  key=lambda x: int(x.split("_")[-1].split(".")[0]))
     src_paths = [os.path.join(source, s) for s in src_paths]
 
     fps = 30

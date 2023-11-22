@@ -212,3 +212,14 @@ if __name__ == "__main__":
         cam_ids=cam_ids["S001"],
         scene="S001",
     )
+
+    # run(
+    #     args=args,
+    #     conf_thres=0.1,
+    #     iou_thres=0.45,
+    #     sources=sources["AV019"],
+    #     result_paths=result_paths["AV019"],
+    #     perspective="AV019",
+    #     cam_ids=cam_ids["AV019"],
+    #     scene="AV019",
+    # )
