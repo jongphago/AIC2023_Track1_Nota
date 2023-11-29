@@ -202,24 +202,15 @@ if __name__ == "__main__":
         "write_vid": True,  # write result to video
     }
 
+    CAM_ID = "AV042"
+
     run(
         args=args,
         conf_thres=0.1,
         iou_thres=0.45,
-        sources=sources["S001"],
-        result_paths=result_paths["S001"],
-        perspective="S001",
-        cam_ids=cam_ids["S001"],
-        scene="S001",
+        sources=sources[CAM_ID],
+        result_paths=result_paths[CAM_ID],
+        perspective=CAM_ID,
+        cam_ids=cam_ids[CAM_ID],
+        scene=CAM_ID,
     )
-
-    # run(
-    #     args=args,
-    #     conf_thres=0.1,
-    #     iou_thres=0.45,
-    #     sources=sources["AV019"],
-    #     result_paths=result_paths["AV019"],
-    #     perspective="AV019",
-    #     cam_ids=cam_ids["AV019"],
-    #     scene="AV019",
-    # )

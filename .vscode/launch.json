@@ -10,7 +10,7 @@
             "request": "launch",
             "program": "${file}",
             "console": "integratedTerminal",
-            "justMyCode": false
+            "justMyCode": true
         },
         {
             "name": "Python: extract_frames.py",
@@ -18,7 +18,7 @@
             "request": "launch",
             "program": "${workspaceFolder}/extract_frames.py",
             "console": "integratedTerminal",
-            "justMyCode": false,
+            "justMyCode": true,
             "args": [
                 // "--path", "/workspace/AIC2023_Track1_Nota/datasets"
                 "--path",

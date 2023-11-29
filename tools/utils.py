@@ -258,6 +258,20 @@ _COLORS = (
 sources = {
     # AIHUB
     "AV019": [f"./datasets/AV019/c0{i:02d}/" for i in range(1, 17)],
+    "AV042": [
+        "./datasets/AV042/c001/",
+        "./datasets/AV042/c002/",
+        "./datasets/AV042/c003/",
+        "./datasets/AV042/c005/",
+        "./datasets/AV042/c006/",
+        "./datasets/AV042/c009/",
+        "./datasets/AV042/c010/",
+        "./datasets/AV042/c011/",
+        "./datasets/AV042/c013/",
+        "./datasets/AV042/c014/",
+        "./datasets/AV042/c015/",
+        "./datasets/AV042/c016/",
+    ],
     # Test
     "S001": [
         "./datasets/S001/c001/",
@@ -321,6 +335,7 @@ sources = {
 result_paths = {
     # AIHUB
     "AV019": "./results/AV019.txt",
+    "AV042": "./results/AV042.txt",
     # Test
     "S001": "./results/S001.txt",
     "S003": "./results/S003.txt",
@@ -336,6 +351,11 @@ map_infos = {
         "size": (1591, 896),
         "source": "./datasets/AV019/map.png",
         "savedir": "./output_videos/mapAV019.mp4",
+    },
+    "AV042": {
+        "size": (1920, 1276),
+        "source": "./datasets/AV042/map.png",
+        "savedir": "./output_videos/mapAV042.mp4",
     },
     # Test
     "S001": {
@@ -377,6 +397,7 @@ map_infos = {
 
 cam_ids = {
     "AV019": [str(i) for i in range(1, 17)],
+    "AV042": ["1", "2", "3", "5", "6", "9", "10", "11", "13", "14", "15", "16"],
     # Test
     "S001": ["1", "2", "3", "4", "5", "6", "7"],
     "S003": ["14", "15", "16", "17", "18", "19"],
@@ -390,7 +411,7 @@ cam_ids = {
 
 def get_reader_writer(source):
     src_paths = sorted(
-        [p for p in os.listdir(source) if (p != "video.mp4")],
+        [p for p in os.listdir(source) if (p != "video.avi")],
         key=lambda x: int(x.split("_")[-1].split(".")[0]),
     )
     src_paths = [os.path.join(source, s) for s in src_paths]
